@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://sprite/fon/trees.png" type="Texture" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="trees" type="Sprite" parent="."]
+position = Vector2( 5.55609, 3.30903 )
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 10, 7, 129, 85 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="trees"]
+position = Vector2( 67.7718, 79.3509 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="trees/StaticBody2D"]
+position = Vector2( -9.18337, -0.869946 )
+scale = Vector2( 1.27774, 0.87739 )
+polygon = PoolVector2Array( -5.48453, -1.39746, -9.06277, 7.35652, 0.808395, 7.26705, 7.33015, 7.26706, 6.41482, 1.6851, 4.64136, -2.23059 )

@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://slime.gd" type="Script" id=1]
+[ext_resource path="res://sprite/enemy/slime1.png" type="Texture" id=2]
+[ext_resource path="res://sprite/enemy/slime2.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "def",
+"speed": 3.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 19.2569
+
+[node name="Enemy1" type="Node2D"]
+position = Vector2( 11.4433, 50.1744 )
+
+[node name="slime" type="KinematicBody2D" parent="."]
+script = ExtResource( 1 )
+
+[node name="spriteslime" type="AnimatedSprite" parent="slime"]
+position = Vector2( 19.1455, -22.8866 )
+scale = Vector2( 2.02696, 2.02696 )
+frames = SubResource( 1 )
+animation = "def"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="slime"]
+position = Vector2( 26.8232, -24.6471 )
+shape = SubResource( 2 )

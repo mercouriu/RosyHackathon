@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Enemy1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprite/fon/tree/treetest2.tres" type="TileSet" id=2]
+[ext_resource path="res://TestLocation.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 27.7992, 398.643 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 572.784, 201.267 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -8.57373, 206.627 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 160.329, 415.012 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 177.477, 11.1459 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Enemy1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 483.065, 236.342 )
+
+[node name="tree" type="Sprite" parent="."]
+
+[node name="TileMap" type="TileMap" parent="tree"]
+mode = 1
+tile_set = ExtResource( 2 )
+cell_y_sort = true
+format = 1
+tile_data = PoolIntArray( -131066, 536870912, 0, 2, 536870912, 0, 7, 536870912, 0, 9, 536870912, 0, 131078, 536870912, 0, 262150, 536870912, 0 )
+
+[node name="Node2D2" parent="tree/TileMap" instance=ExtResource( 3 )]
+position = Vector2( 91.6657, 45.0343 )
