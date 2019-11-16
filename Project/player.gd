@@ -14,6 +14,8 @@ func _physics_process(delta):
 	else: 
 		velocity.x = 0
 		velocity.y = 0
+	if velocity.x >10 or velocity.y >10:
+		velocity=SPEED-1
 	velocity=move_and_slide(velocity)
 	animate()
 func animate():
