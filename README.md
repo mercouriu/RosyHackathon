@@ -1,0 +1,2 @@
+# Rosy
+Game for Hackathon
