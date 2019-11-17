@@ -1,10 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
-[ext_resource path="res://sprite/Player/MA1.jpg.png" type="Texture" id=2]
-[ext_resource path="res://sprite/Player/MA2.jpg.png" type="Texture" id=3]
-[ext_resource path="res://sprite/Player/MA3.png" type="Texture" id=4]
-[ext_resource path="res://sprite/Player/MA4.png" type="Texture" id=5]
+[ext_resource path="res://sprite/Player/MA11.jpg.png" type="Texture" id=2]
+[ext_resource path="res://sprite/Player/MA22.png" type="Texture" id=3]
+[ext_resource path="res://sprite/Player/MA33.png" type="Texture" id=4]
+[ext_resource path="res://sprite/Player/MA44.png" type="Texture" id=5]
+[ext_resource path="res://sprite/Player/arms/fight/ManFight1.png" type="Texture" id=6]
+[ext_resource path="res://sprite/Player/arms/fight/ManFight2.png" type="Texture" id=7]
+[ext_resource path="res://sprite/Player/arms/fight/ManFight3.png" type="Texture" id=8]
+[ext_resource path="res://sprite/Player/arms/fight/ManFight4.png" type="Texture" id=9]
+[ext_resource path="res://sprite/Player/arms/ArmsStay2.png" type="Texture" id=10]
+[ext_resource path="res://sprite/Player/arms/ArmsStay.png" type="Texture" id=11]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -19,8 +25,31 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "fight1",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "fight2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "def",
+"speed": 5.0
+} ]
+
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 5.20518
+radius = 6.45002
 height = 9.73192
 
 [node name="Node2D" type="Node2D"]
@@ -31,9 +60,16 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="AnimatedSprite" parent="player"]
 frames = SubResource( 3 )
-animation = "run"
+animation = "idle"
+
+[node name="arms" type="AnimatedSprite" parent="player"]
+position = Vector2( 2.10331, -6.77525 )
+scale = Vector2( 1.03718, 1 )
+frames = SubResource( 5 )
+animation = "def"
+speed_scale = 0.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
-position = Vector2( -0.563286, 7.92339 )
+position = Vector2( -0.563286, 12.9234 )
 rotation = -1.5708
 shape = SubResource( 4 )

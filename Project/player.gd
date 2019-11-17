@@ -14,17 +14,25 @@ func _physics_process(delta):
 	else: 
 		velocity.x = 0
 		velocity.y = 0
-	if velocity.x >10 or velocity.y >10:
-		velocity=SPEED-1
 	velocity=move_and_slide(velocity)
+	if Input.is_action_pressed("ui_probel"):
+		$arms.play("fight1")
+
 	animate()
+
 func animate():
 	var anim = "idle"
+	var arma = "def"
 	if velocity.x != 0 or velocity.y !=0:
 		anim="run"
-	if velocity.x > 0 or velocity.y > 0:
+		arma="run"
+	if velocity.x > 0:
 		$Sprite.flip_h=false
+		$arms.flip_h=false
 	else:
 		$Sprite.flip_h=true
+		$arms.flip_h=true
 	if $Sprite.animation != anim:
 		$Sprite.play(anim)
+	if $arms.animation != arma:
+		$arms.play(arma)

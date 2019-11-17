@@ -1,20 +1,58 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://sprite/fon/trees.png" type="Texture" id=1]
+[ext_resource path="res://sprite/fon/objectPNG/stone1.png" type="Texture" id=1]
+[ext_resource path="res://sprite/fon/objectPNG/stone2.png" type="Texture" id=2]
+[ext_resource path="res://sprite/fon/trees.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 5, 54, 33, 19 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 61, 26, 33, 44 )
 
 [node name="Node2D" type="Node2D"]
 
-[node name="trees" type="Sprite" parent="."]
-position = Vector2( 5.55609, 3.30903 )
-texture = ExtResource( 1 )
-centered = false
+[node name="stone1" type="Sprite" parent="."]
+position = Vector2( 222.157, 63.8796 )
+scale = Vector2( 1, 1 )
+texture = SubResource( 6 )
 region_enabled = true
-region_rect = Rect2( 10, 7, 129, 85 )
+region_rect = Rect2( 0, 0, 100, 100 )
+region_filter_clip = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="stone1"]
+position = Vector2( -32.7951, -38.553 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="stone1/StaticBody2D"]
+position = Vector2( -0.751022, -2.05977 )
+scale = Vector2( 1.92, 1 )
+polygon = PoolVector2Array( 7.95603, 7.32565, 6.01173, 9.3053, 2.27042, 9.58811, 2.27042, 8.57, -2.78045, 8.29918, -7.66498, 7.4466, -8.62945, 4.83693, -8.24648, 2.2351, -2.9379, 1.81025, -0.965668, 2.75693, 1.74616, 2.28359, 5.52628, 3.7036, 8.51575, 3.7057, 8.54521, 5.11974 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 221.891, 99.4424 )
+texture = SubResource( 10 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 100, 100 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
+position = Vector2( -33.5641, -27.739 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite/StaticBody2D"]
+scale = Vector2( -1.77245, 2.28526 )
+polygon = PoolVector2Array( -7.84998, 7.55196, -8.53542, 8.08359, -8.901, 8.43801, -8.39834, 9.00509, -7.84998, 9.53672, -0.858398, 9.57216, -0.675613, 9.11142, 3.1172, 9.14686, 4.25961, 8.68611, 9.37762, 8.68611, 9.10345, 8.04815, 8.44914, 7.57397, 7.00471, 7.31344, 3.37687, 7.28739, -1.3259, 7.28739, -4.31551, 7.60003 )
+
+[node name="trees" type="Sprite" parent="."]
+position = Vector2( 1.4052, 1.79961 )
+texture = ExtResource( 3 )
+centered = false
+region_rect = Rect2( 10, 7, 129, 139 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="trees"]
 position = Vector2( 67.7718, 79.3509 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="trees/StaticBody2D"]
-position = Vector2( -9.18337, -0.869946 )
+position = Vector2( 0.287735, 8.34243 )
 scale = Vector2( 1.27774, 0.87739 )
-polygon = PoolVector2Array( -5.48453, -1.39746, -9.06277, 7.35652, 0.808395, 7.26705, 7.33015, 7.26706, 6.41482, 1.6851, 4.64136, -2.23059 )
+polygon = PoolVector2Array( -5.48453, -1.39746, -10.0845, 9.05736, -4.92486, 7.66589, -3.01389, 5.43952, 0.808395, 7.26705, 3.88618, 9.34005, 4.91663, 6.831, 9.02522, 7.38759, 7.97418, 1.8217, 6.25431, -1.65699 )
