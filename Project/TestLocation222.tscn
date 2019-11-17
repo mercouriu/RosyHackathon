@@ -47,9 +47,9 @@ tile_set = ExtResource( 3 )
 cell_tile_origin = 1
 cell_y_sort = true
 format = 1
-tile_data = PoolIntArray( -196601, 1, 0, -196598, 0, 0, -131064, 0, 0, -65526, 0, 0, 5, 1, 0, 196613, 0, 0 )
+tile_data = PoolIntArray( -327674, 0, 0, -196601, 1, 0, -196598, 0, 0, -131064, 0, 0, -65526, 0, 0, 5, 1, 0, 7, 0, 0, 196613, 0, 0 )
 
-[node name="Node2D2" parent="tree/TileMap" instance=ExtResource( 4 )]
+[node name="Node2D" parent="tree/TileMap" instance=ExtResource( 4 )]
 position = Vector2( 96.0762, 111.928 )
 
 [node name="enemy2" parent="." instance=ExtResource( 5 )]

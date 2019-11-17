@@ -1,6 +1,7 @@
 extends KinematicBody2D
 var velocity = Vector2()
 const SPEED = 10
+const Heal = 100
 
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_cont_left"):
