@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://bird.gd" type="Script" id=1]
+[ext_resource path="res://enemy/bird.png" type="Texture" id=2]
+[ext_resource path="res://enemy/bird2.png" type="Texture" id=3]
+[ext_resource path="res://enemy/bird3.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "etic",
+"speed": 15.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 117.851
+
+[node name="bird" type="KinematicBody2D"]
+position = Vector2( 56.7863, 65.1371 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 8.80254, -15.2886 )
+shape = SubResource( 1 )
+
+[node name="birdan" type="AnimatedSprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 3 )
+animation = "etic"
+
+[node name="player_container" type="Node" parent="."]
+
+[node name="Area2D" type="Area2D" parent="player_container"]
+position = Vector2( 62.081, 52.8152 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_container/Area2D"]
+position = Vector2( 2.77973, -1.38987 )
+shape = SubResource( 2 )
